@@ -3,6 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db.js");
 const authRoutes = require("./routes/authRoute.js");
+const taskRoutes = require('./routes/taskRoute.js');
 
 dotenv.config();
 
@@ -23,6 +24,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+
+app.use('/api/tasks', taskRoutes);
 
 app.listen(3000, () => {
   console.log("Server running at http://localhost:3000");
