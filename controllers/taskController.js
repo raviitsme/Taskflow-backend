@@ -13,7 +13,6 @@ exports.getTasks = async (req, res) => {
 
     const query = {
       userId: req.user.id,
-      status: { $ne: "Done" },
     };
 
     // Search
