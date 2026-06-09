@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db.js");
 const authRoutes = require("./routes/authRoute.js");
 const taskRoutes = require('./routes/taskRoute.js');
+const userRoutes = require('./routes/userRoute.js');
 
 dotenv.config();
 
@@ -26,6 +27,8 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 
 app.use('/api/tasks', taskRoutes);
+
+app.use('/api/me', userRoutes);
 
 app.listen(3000, () => {
   console.log("Server running at http://localhost:3000");
