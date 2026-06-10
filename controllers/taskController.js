@@ -152,7 +152,7 @@ exports.toggleTask = async (req, res) => {
       });
     }
 
-    task.status = task.status === "Done" ? "In Progress" : "Done";
+    task.status = task.status === "DONE" ? "IN_PROGRESS" : "DONE";
 
     await task.save();
 
