@@ -17,7 +17,7 @@ exports.getTasks = async (req, res) => {
       userId: req.user.id,
     };
 
-    if(status != "All"){
+    if (status != "All") {
       query.status = status;
     }
 
@@ -52,6 +52,9 @@ exports.getTasks = async (req, res) => {
       })
       .skip(skip)
       .limit(limit);
+
+    console.log("Query:", JSON.stringify(query));
+    console.log("Status from req:", req.query.status);
 
     res.status(200).json({
       success: true,
@@ -192,7 +195,7 @@ exports.updateTask = async (req, res) => {
       {
         new: true,
         runValidators: true,
-      }
+      },
     );
 
     if (!task) {
