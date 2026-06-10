@@ -39,6 +39,9 @@ exports.getTasks = async (req, res) => {
       ];
     }
 
+    const allTasks = await Task.find({ userId: req.user.id });
+
+
     // Priority Filter
     if (priority !== "All") {
       query.priority = priority;
@@ -52,9 +55,6 @@ exports.getTasks = async (req, res) => {
       })
       .skip(skip)
       .limit(limit);
-
-    console.log("Query:", JSON.stringify(query));
-    console.log("Status from req:", req.query.status);
 
     res.status(200).json({
       success: true,
