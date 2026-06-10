@@ -2,6 +2,7 @@ const User = require("../models/User");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
+const { sendWelcomeEmail } = require('../services/email.service');
 dotenv.config();
 
 // Generate Token
@@ -30,6 +31,8 @@ exports.registerUser = async (req, res) => {
       email,
       password: hashedPass,
     });
+
+    await sendWelcomeEmail(user);
 
     return res.status(201).json({
       success: true,
