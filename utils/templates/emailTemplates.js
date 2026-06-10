@@ -1,4 +1,4 @@
-export const welcomeEmailTemplate = (name) => {
+const welcomeEmailTemplate = (name) => {
   return `
   <div style="
     margin:0;
@@ -99,3 +99,5 @@ export const welcomeEmailTemplate = (name) => {
   </div>
   `;
 };
+
+module.exports = welcomeEmailTemplate;
