@@ -12,4 +12,5 @@ router.get('/me', verifyToken, (req, res) => {
     });
 });
 
+
 module.exports = router;

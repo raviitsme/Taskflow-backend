@@ -32,7 +32,11 @@ exports.registerUser = async (req, res) => {
       password: hashedPass,
     });
 
-    await sendWelcomeEmail(user);
+    try {
+      await sendWelcomeEmail(user);
+    } catch (e) {
+      console.error("Email error : ", e);
+    }
 
     return res.status(201).json({
       success: true,
