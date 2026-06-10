@@ -11,9 +11,15 @@ exports.getTasks = async (req, res) => {
 
     const skip = (page - 1) * limit;
 
+    const status = req.query.status || "All";
+
     const query = {
       userId: req.user.id,
     };
+
+    if(status != "All"){
+      query.status = status;
+    }
 
     // Search
     if (search) {
