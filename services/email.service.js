@@ -1,4 +1,4 @@
-import { welcomeEmailTemplate } from '../utils/templates/emailTemplates';
+const { welcomeEmailTemplate } = require('../utils/templates/emailTemplates');
 
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
